@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {Navbar} from "./components/navbar";
+import {Cart} from './pages/cart/Korpa'
+import ONama from './pages/ONama'
+import { ProizvodiContextProvider } from './context/ProizvodiContext';
+import Footer from './components/footer';
+import Kontakt from './pages/Kontakt';
 import './App.css';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ProizvodiContextProvider>
+              <Router>
+              <Navbar />
+              <Routes>
+                <Route path="/cart" element={<Cart/>} />
+                <Route path="/kontakt"  element={<Kontakt />} />
+                <Route path="/onama"  element={<ONama />} />
+              </Routes>
+              <Footer />
+              
+              
+            </Router>
+      </ProizvodiContextProvider>
     </div>
-  );
+        );
 }
 
 export default App;
