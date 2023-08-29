@@ -6,9 +6,12 @@ import ONama from './pages/ONama'
 import { ProizvodiContextProvider } from './context/ProizvodiContext';
 import Footer from './components/footer';
 import Kontakt from './pages/Kontakt';
+import CopyButton from "./components/CopyButton";
 import './App.css';
 
 function App() {
+
+  const telefon = "+381 657890345";
 
   return (
     <div className="App">
@@ -22,7 +25,8 @@ function App() {
                 <Route path="/onama"  element={<ONama />} />
               </Routes>
               <Footer />
-             
+              
+                <CopyButton textToCopy={telefon}/> 
               
             </Router>
       </ProizvodiContextProvider>
